@@ -146,12 +146,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CircleSpawner.cpp" />
     <ClCompile Include="Deneme.cpp" />
     <ClCompile Include="FPSCounter.cpp" />
     <ClCompile Include="MainLauncher.cpp" />
     <ClCompile Include="Şekil.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CircleSpawner.h" />
     <ClInclude Include="MainLauncher.h" />
     <ClInclude Include="OyunObjesi.h" />
     <ClInclude Include="FPSCounter.h" />

@@ -1,9 +1,9 @@
 ﻿#include "Şekil.h"
-#include "MainLauncher.h"
+
 using namespace sf;
 
 CircleShape triangle;
-
+Font font;
 Text info;
 Text lineCount;
 
@@ -19,7 +19,7 @@ void Şekil::Start() {
     triangle.setOutlineColor(Color::Cyan);
     CenterCircle(triangle, MainLauncher::windowPtr->getSize());
 
-    Font font;
+
     font.loadFromFile("font.otf");
 
     info.setFont(font);
@@ -31,16 +31,16 @@ void Şekil::Start() {
 }
 
 
-void Şekil::Update()
+void Şekil::Update(float frameTime)
 {
     if (Mouse::isButtonPressed(Mouse::Button::Left)) {
         triangle.setPointCount(triangle.getPointCount() + 1);
-        std::cout << "Kenar sayisi artirildi\n";
+        //std::cout << "Kenar sayisi artirildi\n";
         lineCount.setString((L"Kenar sayısı: ") + std::to_string(triangle.getPointCount()));
     }
     if (Mouse::isButtonPressed(Mouse::Button::Right) && triangle.getPointCount() > 3) {
         triangle.setPointCount(triangle.getPointCount() - 1);
-        std::cout << "Kenar sayisi azaltildi\n";
+        //std::cout << "Kenar sayisi azaltildi\n";
         lineCount.setString((L"Kenar sayısı: ") + std::to_string(triangle.getPointCount()));
     }
 

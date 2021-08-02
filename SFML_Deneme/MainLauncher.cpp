@@ -16,7 +16,10 @@ void MainLauncher::main() {
 	std::cout << "Deneme baslatiliyor\n";
 
 	setlocale(LC_ALL, "Turkish");
-	RenderWindow window(VideoMode(640, 640), L"Şekil", Style::Default);
+	sf::ContextSettings settings;
+	settings.antialiasingLevel = 4;
+
+	RenderWindow window(VideoMode(640, 640), L"Küçük adımlar", Style::Default, settings);
 	window.setFramerateLimit(60);
 
 	windowPtr = &window;
@@ -25,13 +28,16 @@ void MainLauncher::main() {
 
 	//Burayı instantiate gibi düşün
 	systems.push_back(new FPSCounter());
-	systems.push_back(new Şekil());
+	//systems.push_back(new Şekil());
+	systems.push_back(new CircleSpawner());
 	
 	//Startları çağır
 	for (int i = 0; i < systems.size(); i++)
 	{
 		systems[i]->Start();
 	}
+
+	Clock frameClock;
 
 	while (window.isOpen()) {
 		//Temizle
@@ -53,10 +59,11 @@ void MainLauncher::main() {
 		//Updateleri çağır
 		for (int i = 0; i < systems.size(); i++)
 		{
-			systems[i]->Update();
+			systems[i]->Update(frameClock.getElapsedTime().asSeconds());
 		}
 
 		//Değişiklikleri ekrana çiz
+		frameClock.restart();
 		window.display();
 	}
 

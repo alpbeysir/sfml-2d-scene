@@ -6,6 +6,7 @@
 #include "Şekil.h"
 #include "OyunObjesi.h"
 #include "FPSCounter.h"
+#include "CircleSpawner.h"
 
 class MainLauncher {
 public:

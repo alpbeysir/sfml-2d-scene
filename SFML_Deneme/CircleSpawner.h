@@ -1,14 +1,14 @@
-﻿#pragma once
+#pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include <string>
+#include <vector>
 #include "OyunObjesi.h"
 #include "MainLauncher.h"
 
-class Şekil : public OyunObjesi {
+class CircleSpawner : public OyunObjesi {
 public:
 	void Start() override;
 	void Update(float frameTime) override;
+private:
+	std::vector<sf::Vector2f> points;
 };
-
-
