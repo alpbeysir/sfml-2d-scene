@@ -7,10 +7,13 @@
 #include "OyunObjesi.h"
 #include "FPSCounter.h"
 #include "CircleSpawner.h"
+#include "Input.h"
+
 
 class MainLauncher {
 public:
 	static void main();
 
 	static sf::RenderWindow *windowPtr;
+	static Input *inputPtr;
 };

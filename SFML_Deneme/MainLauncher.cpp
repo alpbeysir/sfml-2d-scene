@@ -1,9 +1,9 @@
 ﻿#include "MainLauncher.h";
-#include <vector>
 
 using namespace sf;
 
 RenderWindow *MainLauncher::windowPtr;
+Input* MainLauncher::inputPtr;
 
 //static void ExitGame(RenderWindow& window) {
 //	window.close();
@@ -26,6 +26,11 @@ void MainLauncher::main() {
 	std::vector<OyunObjesi*> systems;
 
 	//Burayı instantiate gibi düşün
+
+	//Inputu hazırla
+	systems.push_back(new Input());
+	MainLauncher::inputPtr = (Input*)&systems[0];
+
 	systems.push_back(new FPSCounter());
 	//systems.push_back(new Şekil());
 	systems.push_back(new CircleSpawner());
@@ -51,6 +56,9 @@ void MainLauncher::main() {
 		//Değişiklikleri ekrana çiz
 		frameClock.restart();
 		window.display();
+
+		//Inputu sıfırla
+		((Input*)systems[0])->ResetButtons();
 	}
 
 

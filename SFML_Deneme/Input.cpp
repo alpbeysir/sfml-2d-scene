@@ -1,9 +1,11 @@
 #include "Input.h"
+#include "MainLauncher.h"
 using namespace sf;
 
 
 void Input::Start() {
-
+	Input::buttons.push_back(new Button("Mouse_Left"));
+	Input::buttons.push_back(new Button("Mouse_Right"));
 }
 
 void Input::Update(float frameTime) {
@@ -13,12 +15,46 @@ void Input::Update(float frameTime) {
 	Event event;
 	while (window.pollEvent(event))
 	{
-		if (event.type == Event::Closed)
-		{
-			//ExitGame(window);
+		if (event.type == Event::MouseButtonPressed) {
+			if (event.mouseButton.button == Mouse::Button::Left) {
+				Input::FindButton("Mouse_Left")->isPressed = true;
+			}
+			else if (event.mouseButton.button == Mouse::Button::Right) {
+				Input::FindButton("Mouse_Right")->isPressed = true;
+			}
 		}
-		if (event.type == Event::KeyPressed && event.key.code == Keyboard::Escape) {
-			//ExitGame(window);
+		//if (event.type == Event::Closed)
+		//{
+		//	ExitGame(window);
+		//}
+		//if (event.type == Event::KeyPressed) {
+		//	ExitGame(window);
+		//}
+	}
+}
+
+bool Input::IsButtonPressed(std::string name)
+{
+	return Input::FindButton(name)->isPressed;
+}
+
+Input::Button* Input::FindButton(std::string name)
+{
+	std::cout << Input::buttons[0]->isPressed;
+	for (int i = 0; i < Input::buttons.size(); i++)
+	{
+		if (Input::buttons[i]->name == name) {
+			return Input::buttons[i];
 		}
+	}
+	printf("Boyle bir InputButton yok!");
+	return nullptr;
+}
+
+void Input::ResetButtons()
+{
+	for (int i = 0; i < Input::buttons.size(); i++)
+	{
+		Input::buttons[i]->isPressed = false;
 	}
 }

@@ -1,5 +1,4 @@
-﻿#include "FPSCounter.h"
-#include "CircleSpawner.h"
+﻿#include "CircleSpawner.h"
 using namespace sf;
 
 void CircleSpawner::Start() {
@@ -10,6 +9,9 @@ void CircleSpawner::Update(float frameTime) {
         CircleSpawner::points.push_back((Vector2f)Mouse::getPosition(*MainLauncher::windowPtr));
     }
     
+    if (MainLauncher::inputPtr->IsButtonPressed("Mouse_Left")) {
+        printf("asd");
+    }
     if (CircleSpawner::points.size() > 3)
     for (int i = 0; i < CircleSpawner::points.size() - 1; i++)
     {
