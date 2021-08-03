@@ -24,6 +24,6 @@ public:
 	Button* FindButton(std::string name);
 	void ResetButtons();
 private:
-	std::vector<Button*> buttons;
+	static std::vector<Button*> buttons;
 
 };

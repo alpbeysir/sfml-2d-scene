@@ -1,9 +1,6 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <vector>
 #include "OyunObjesi.h"
-#include "MainLauncher.h"
+
 
 class CircleSpawner : public OyunObjesi {
 public:

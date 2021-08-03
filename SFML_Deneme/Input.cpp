@@ -1,7 +1,8 @@
-#include "Input.h"
+﻿#include "Input.h"
 #include "MainLauncher.h"
 using namespace sf;
 
+std::vector<Input::Button*> Input::buttons;
 
 void Input::Start() {
 	Input::buttons.push_back(new Button("Mouse_Left"));
@@ -18,18 +19,22 @@ void Input::Update(float frameTime) {
 		if (event.type == Event::MouseButtonPressed) {
 			if (event.mouseButton.button == Mouse::Button::Left) {
 				Input::FindButton("Mouse_Left")->isPressed = true;
+				printf("Sol mouse basildi\n");
 			}
 			else if (event.mouseButton.button == Mouse::Button::Right) {
 				Input::FindButton("Mouse_Right")->isPressed = true;
+				printf("Sag mouse basildi\n");
 			}
 		}
-		//if (event.type == Event::Closed)
-		//{
-		//	ExitGame(window);
-		//}
-		//if (event.type == Event::KeyPressed) {
-		//	ExitGame(window);
-		//}
+
+		//Kapanma eventleri de hallet
+		if (event.type == Event::Closed)
+		{
+			window.close();
+		}
+		if (event.type == Event::KeyPressed && event.key.code == Keyboard::Escape) {
+			window.close();
+		}
 	}
 }
 
@@ -40,7 +45,6 @@ bool Input::IsButtonPressed(std::string name)
 
 Input::Button* Input::FindButton(std::string name)
 {
-	std::cout << Input::buttons[0]->isPressed;
 	for (int i = 0; i < Input::buttons.size(); i++)
 	{
 		if (Input::buttons[i]->name == name) {
