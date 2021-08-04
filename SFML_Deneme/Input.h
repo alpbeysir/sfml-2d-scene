@@ -20,8 +20,8 @@ public:
 		}
 	};
 
-	bool IsButtonPressed(std::string name);
-	Button* FindButton(std::string name);
+	static bool IsButtonPressed(std::string name);
+	static Button* FindButton(std::string name);
 	void ResetButtons();
 private:
 	static std::vector<Button*> buttons;

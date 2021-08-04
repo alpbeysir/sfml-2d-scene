@@ -19,11 +19,11 @@ void Input::Update(float frameTime) {
 		if (event.type == Event::MouseButtonPressed) {
 			if (event.mouseButton.button == Mouse::Button::Left) {
 				Input::FindButton("Mouse_Left")->isPressed = true;
-				printf("Sol mouse basildi\n");
+				printf("[Input] Sol mouse basildi\n");
 			}
 			else if (event.mouseButton.button == Mouse::Button::Right) {
 				Input::FindButton("Mouse_Right")->isPressed = true;
-				printf("Sag mouse basildi\n");
+				printf("[Input] Sag mouse basildi\n");
 			}
 		}
 

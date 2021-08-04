@@ -3,7 +3,6 @@
 using namespace sf;
 
 RenderWindow *MainLauncher::windowPtr;
-Input* MainLauncher::inputPtr;
 
 //static void ExitGame(RenderWindow& window) {
 //	window.close();
@@ -18,7 +17,7 @@ void MainLauncher::main() {
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 4;
 
-	RenderWindow window(VideoMode(640, 640), L"Küçük adımlar", Style::Default, settings);
+	RenderWindow window(VideoMode(1280, 720), L"Küçük adımlar", Style::Close, settings);
 	window.setFramerateLimit(60);
 
 	windowPtr = &window;
@@ -29,11 +28,11 @@ void MainLauncher::main() {
 
 	//Inputu hazırla
 	systems.push_back(new Input());
-	MainLauncher::inputPtr = (Input*)&systems[0];
 
 	systems.push_back(new FPSCounter());
 	//systems.push_back(new Şekil());
 	systems.push_back(new CircleSpawner());
+
 	
 	//Startları çağır
 	for (int i = 0; i < systems.size(); i++)

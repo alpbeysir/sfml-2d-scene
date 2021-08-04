@@ -24,9 +24,6 @@
     <ClCompile Include="MainLauncher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Deneme.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CircleSpawner.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

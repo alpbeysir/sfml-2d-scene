@@ -11,6 +11,6 @@ void FPSCounter::Start() {
 }
 
 void FPSCounter::Update(float frameTime) {
-	FPSCounter::fpsText.setString(std::to_string(1.0f / frameTime) + " FPS");
+	FPSCounter::fpsText.setString(std::to_string(1.0f / frameTime) + " FPS, 1280x720");
 	MainLauncher::windowPtr->draw(fpsText);
 }

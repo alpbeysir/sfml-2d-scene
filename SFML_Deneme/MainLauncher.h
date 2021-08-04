@@ -15,5 +15,4 @@ public:
 	static void main();
 
 	static sf::RenderWindow *windowPtr;
-	static Input *inputPtr;
 };
