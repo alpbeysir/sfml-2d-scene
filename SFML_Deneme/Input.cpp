@@ -36,6 +36,7 @@ void Input::Update(float frameTime) {
 			window.close();
 		}
 	}
+
 }
 
 bool Input::IsButtonPressed(std::string name)

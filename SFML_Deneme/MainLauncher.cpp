@@ -14,7 +14,7 @@ void MainLauncher::main() {
 	std::cout << "Deneme baslatiliyor\n";
 
 	setlocale(LC_ALL, "Turkish");
-	sf::ContextSettings settings;
+	ContextSettings settings;
 	settings.antialiasingLevel = 4;
 
 	RenderWindow window(VideoMode(1280, 720), L"Küçük adımlar", Style::Close, settings);

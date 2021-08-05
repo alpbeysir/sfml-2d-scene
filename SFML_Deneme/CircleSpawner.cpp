@@ -19,7 +19,7 @@ void CircleSpawner::Update(float frameTime) {
         newCircle->setPosition((Vector2f)Mouse::getPosition(*MainLauncher::windowPtr));
         CircleSpawner::circles.push_back(*newCircle);
     }
-    
+
     //Yuvarlakları çiz
     for (int i = 0; i < circles.size(); i++)
     {
